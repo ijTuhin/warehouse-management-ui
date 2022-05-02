@@ -3,7 +3,7 @@ import './Header.css';
 import { header, blank } from '../../../index';
 const Header = () => {
     return (
-        <div className='flex justify-between items-center shadow-md px-5 mb-3'>
+        <div className='flex justify-between items-center shadow-md px-5'>
             <div className='my-2.5 font-mono'>
                 <img className='w-16' src={header} alt="" />
                 <p>Warehouse</p>

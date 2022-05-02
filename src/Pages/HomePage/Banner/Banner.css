@@ -1,0 +1,14 @@
+.carousel-caption {
+    transform: translateY(-50%);
+    bottom: initial;
+    top: 50%;
+}
+
+.carousel .carousel-item {
+    max-height: 625px;
+}
+
+.carousel-item img {
+    object-fit: cover;
+    max-height: 870px;
+}

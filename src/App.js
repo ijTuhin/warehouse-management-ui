@@ -1,12 +1,13 @@
 import './App.css';
 import Footer from './Pages/Common/Footer/Footer';
 import Header from './Pages/Common/Header/Header';
+import Home from './Pages/HomePage/Home';
 
 function App() {
   return (
     <div >
       <Header></Header>
-      <h1>Warehouse Management system</h1>
+      <Home></Home>
       <Footer></Footer>
     </div>
   );
