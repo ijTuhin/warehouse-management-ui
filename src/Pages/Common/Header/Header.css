@@ -1,10 +1,9 @@
 
-  a {
+  .bar {
     display: inline-block;
-    padding: 7px 0px;
     position: relative;
   }
-  a:before {    
+  .bar:before {    
     bottom: 0;
     content: "";
     display: block;
@@ -15,13 +14,7 @@
     transition: width 0.5s ease-in-out 0s, left 0.5s ease-in-out 0s;
     width: 0;
   }
-  a:hover:before { 
+  .bar:hover:before { 
     width: 100%; 
     left: 0; 
   }
-  @media screen and (max-height: 300px) {
-      ul {
-          margin-top: 40px;
-      }
-  }
-  

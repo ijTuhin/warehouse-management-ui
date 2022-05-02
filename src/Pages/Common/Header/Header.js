@@ -11,10 +11,10 @@ const Header = () => {
                 <p>Warehouse</p>
             </div>
             <nav className='text-center text-gray-500 font-semibold hidden md:block'>
-                <a className='px-3 bar hover:text-black' href="/#">Home</a>
-                <a className='px-3 bar hover:text-black' href="/#">Products</a>
-                <a className='px-3 bar hover:text-black' href="/#">Blog</a>
-                <a className='px-3 bar hover:text-black' href="/#">About</a>
+                <a className='p-3 bar hover:text-black' href="/#">Home</a>
+                <a className='p-3 bar hover:text-black' href="/#">Products</a>
+                <a className='p-3 bar hover:text-black' href="/#">Blog</a>
+                <a className='p-3 bar hover:text-black' href="/#">About</a>
             </nav>
             <img className='w-10 m-3 hidden md:block' src={blank} alt="" />
             <div className="flex justify-center md:hidden">
@@ -32,15 +32,19 @@ const Header = () => {
                             aria-labelledby="dropdownMenuButton2">
                             <li>
                                 <a className=" dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 "
-                                    href="/#">Action</a>
+                                    href="/#">Home</a>
                             </li>
                             <li>
                                 <a className=" dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 "
-                                    href="/#">Action</a>
+                                    href="/#">Products</a>
                             </li>
                             <li>
                                 <a className=" dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 "
-                                    href="/#">Action</a>
+                                    href="/#">Blog</a>
+                            </li>
+                            <li>
+                                <a className=" dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 "
+                                    href="/#">About</a>
                             </li>
                         </ul>
                     </div>
