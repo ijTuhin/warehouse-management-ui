@@ -5,7 +5,7 @@ import Home from './Pages/HomePage/Home';
 
 function App() {
   return (
-    <div >
+    <div className='relative'>
       <Header></Header>
       <Home></Home>
       <Footer></Footer>
