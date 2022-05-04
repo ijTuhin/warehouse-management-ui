@@ -2,7 +2,7 @@ import React from 'react';
 
 const Items = () => {
     return (
-        <div className='grid grid-cols-1 md:grid-cols-3 my-5 gap-y-5 mx-auto md:mx-56'>
+        <div className='grid grid-cols-1 md:grid-cols-3 my-10 gap-y-5 mx-auto md:mx-56'>
             {/* <div className='bg-[url("https://cdn.pixabay.com/photo/2018/12/06/16/12/bird-3860034__340.jpg")] object-cover h-screen w-full bg-cover bg-center text-center'>
                 <h2 className="text-3xl text-white">This is Overlay Image</h2>
             </div> */}
