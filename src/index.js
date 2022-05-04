@@ -21,3 +21,4 @@ reportWebVitals();
 export const logo = require('./images/logo.jpg');
 export const blank = require('./images/blank.png');
 export const header = require('./images/header.png');
+export const Google = require('./icons/google.png');
