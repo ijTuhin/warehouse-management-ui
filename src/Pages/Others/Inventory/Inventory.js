@@ -2,6 +2,7 @@ import React from 'react';
 import Footer from '../../Common/Footer/Footer';
 import Header from '../../Common/Header/Header';
 import { logo } from '../../../index';
+import ManageInventoryBtn from '../../Common/ManageInventoryBtn/ManageInventoryBtn';
 const Inventory = () => {
     return (
         <div>
@@ -51,6 +52,8 @@ const Inventory = () => {
                         </div>
                     </div>
                 </div>
+                <br />
+                <ManageInventoryBtn></ManageInventoryBtn>
             </div>
             <Footer></Footer>
         </div>
