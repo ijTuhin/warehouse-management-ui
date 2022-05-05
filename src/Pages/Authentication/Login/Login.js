@@ -3,19 +3,19 @@ import {Google} from '../../../index';
 const Login = () => {
     return (
         <div class="container h-screen flex flex-col justify-start items-center px-6 py-12">
-            <form className='w-96'>
-            <h2 className='text-3xl w-full mb-5'>Please Login to Continue</h2>
+            <form className='w-72 md:w-96'>
+            <h2 className='md:text-3xl text-2xl w-full mb-5'>Please Login to Continue</h2>
                 <div class="mb-3">
                     <input
                         type="text"
-                        class="form-control block w-full px-4 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                        class="form-control block w-full px-2.5 md:px-4 py-1.5 text-sm md:text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                         placeholder="Email address"
                     />
                 </div>
                 <div class="mb-3">
                     <input
                         type="password"
-                        class="form-control block w-full px-4 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                        class="form-control block w-full px-2.5 md:px-4 py-1.5 text-sm md:text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                         placeholder="Password"
                     />
                 </div>
@@ -29,7 +29,7 @@ const Login = () => {
                 </div>
                 <button
                     type="submit"
-                    class="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full"
+                    class="inline-block px-7 py-2 md:py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full"
                     data-mdb-ripple="true"
                     data-mdb-ripple-color="light"
                 >
