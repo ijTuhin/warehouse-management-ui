@@ -7,7 +7,7 @@ import Inventory from './Pages/Others/Inventory/Inventory';
 
 function App() {
   return (
-    <div className='relative h-screen'>
+    <div className='relative max-h-full'>
       <Routes>
         <Route path='/' element={<Home></Home>}/>
         <Route path='/login' element={<Login></Login>}/>
