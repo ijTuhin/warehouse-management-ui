@@ -4,6 +4,7 @@ import Login from './Pages/Authentication/Login/Login';
 import Home from './Pages/HomePage/Home';
 import Blogs from './Pages/Others/Blogs/Blogs';
 import Inventory from './Pages/Others/Inventory/Inventory';
+import ManageInventories from './Pages/Others/ManageInventories/ManageInventories';
 import PageNotFound from './Pages/Others/PageNotFound/PageNotFound';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path='/login' element={<Login></Login>}/>
         <Route path='/blogs' element={<Blogs></Blogs>}/>
         <Route path='/inventory' element={<Inventory></Inventory>}/>
+        <Route path='/manage-inventories' element={<ManageInventories></ManageInventories>}/>
         <Route path='*' element={<PageNotFound></PageNotFound>}/>
       </Routes>
     </div>
