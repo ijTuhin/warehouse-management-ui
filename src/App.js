@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Login from './Pages/Authentication/Login/Login';
 import Home from './Pages/HomePage/Home';
+import AddItems from './Pages/Others/AddItems/AddItems';
 import Blogs from './Pages/Others/Blogs/Blogs';
 import Inventory from './Pages/Others/Inventory/Inventory';
 import ManageInventories from './Pages/Others/ManageInventories/ManageInventories';
@@ -16,6 +17,7 @@ function App() {
         <Route path='/blogs' element={<Blogs></Blogs>}/>
         <Route path='/inventory' element={<Inventory></Inventory>}/>
         <Route path='/manage-inventories' element={<ManageInventories></ManageInventories>}/>
+        <Route path='/add-items' element={<AddItems></AddItems>}/>
         <Route path='*' element={<PageNotFound></PageNotFound>}/>
       </Routes>
     </div>

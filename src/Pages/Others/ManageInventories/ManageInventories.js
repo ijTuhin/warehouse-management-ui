@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { logo, deleteBtn } from '../../../index';
 import Footer from '../../Common/Footer/Footer';
 import Header from '../../Common/Header/Header';
@@ -40,7 +41,7 @@ const ManageInventories = () => {
                 </div>
             </div>
             <div className='flex justify-end mx-10'>
-                <button type='submit' className='border border-gray-600 rounded px-2.5 py-0.5'>Add Items</button>
+                <Link to='/add-items' className='border border-gray-600 rounded px-2.5 py-0.5'>Add Items</Link>
             </div>
             <Footer></Footer>
         </div>
