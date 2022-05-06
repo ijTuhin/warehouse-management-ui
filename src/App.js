@@ -6,6 +6,7 @@ import AddItems from './Pages/Others/AddItems/AddItems';
 import Blogs from './Pages/Others/Blogs/Blogs';
 import Inventory from './Pages/Others/Inventory/Inventory';
 import ManageInventories from './Pages/Others/ManageInventories/ManageInventories';
+import MyItems from './Pages/Others/MyItems/MyItems';
 import PageNotFound from './Pages/Others/PageNotFound/PageNotFound';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path='/inventory' element={<Inventory></Inventory>}/>
         <Route path='/manage-inventories' element={<ManageInventories></ManageInventories>}/>
         <Route path='/add-items' element={<AddItems></AddItems>}/>
+        <Route path='/my-items' element={<MyItems></MyItems>}/>
         <Route path='*' element={<PageNotFound></PageNotFound>}/>
       </Routes>
     </div>

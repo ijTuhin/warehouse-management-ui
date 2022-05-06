@@ -19,6 +19,8 @@ root.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 export const logo = require('./images/logo.jpg');
+export const img2 = require('./images/img2.jpeg');
+export const img3 = require('./images/img3.jpeg');
 export const blank = require('./images/blank.png');
 export const header = require('./images/header.png');
 export const Google = require('./icons/google.png');
