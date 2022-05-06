@@ -6,16 +6,16 @@ const AddItems = () => {
     return (
         <div>
             <Header></Header>
-            <div className="w-96 my-10 py-6 px-10 rounded-lg shadow-xl bg-white mx-auto">
+            <div className="md:w-96 w-72 my-10 py-6 px-10 rounded-lg shadow-xl bg-white mx-auto">
                 <h1 className='text-center text-xl mb-4'>Add New Items</h1>
                 <form>
                     <div className="form-group mb-3.5">
                         <input type="text" className="form-control block
         w-full
         px-3
-        py-1.5
-        text-base
-        font-normal
+        md:py-1.5 py-1
+        md:text-base text-sm
+        md:font-normal
         text-gray-700
         bg-white bg-clip-padding
         border border-solid border-gray-300
@@ -30,9 +30,9 @@ const AddItems = () => {
                         <input type="number" className="form-control block
         w-full
         px-3
-        py-1.5
-        text-base
-        font-normal
+        md:py-1.5 py-1
+        md:text-base text-sm
+        md:font-normal
         text-gray-700
         bg-white bg-clip-padding
         border border-solid border-gray-300
@@ -47,9 +47,9 @@ const AddItems = () => {
                         <input type="text" className="form-control block
         w-full
         px-3
-        py-1.5
-        text-base
-        font-normal
+        md:py-1.5 py-1
+        md:text-base text-sm
+        md:font-normal
         text-gray-700
         bg-white bg-clip-padding
         border border-solid border-gray-300
@@ -64,9 +64,9 @@ const AddItems = () => {
                         <input type="url" name="image" id="image" placeholder='Item Image' className="form-control block
         w-full
         px-3
-        py-1.5
-        text-base
-        font-normal
+        md:py-1.5 py-1
+        md:text-base text-sm
+        md:font-normal
         text-gray-700
         bg-white bg-clip-padding
         border border-solid border-gray-300
@@ -83,9 +83,9 @@ const AddItems = () => {
         block
         w-full
         px-3
-        py-1.5
-        text-base
-        font-normal
+        md:py-1.5 py-1
+        md:text-base text-sm
+        md:font-normal
         text-gray-700
         bg-white bg-clip-padding
         border border-solid border-gray-300
