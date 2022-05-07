@@ -4,6 +4,9 @@ import { useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword } from
 import auth from '../../../firebase.init';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../Loading/Loading';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -12,6 +15,7 @@ const Login = () => {
     const location = useLocation();
     const navigate = useNavigate();
     let error;
+
     const from = location.state?.from?.pathname || "/";
     const [
         signInWithEmailAndPassword,
@@ -23,7 +27,8 @@ const Login = () => {
     const [
         createUserWithEmailAndPassword,
         userCreated,
-    ] = useCreateUserWithEmailAndPassword(auth);
+        loading2,
+    ] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification: true});
 
     const handleUserCheck = event => {
         setNotRegistered(event.target.checked);
@@ -71,6 +76,7 @@ const Login = () => {
 
     return (
         <div className="container h-screen flex flex-col justify-start items-center px-6 py-12">
+            <ToastContainer />
             <form className='w-72 md:w-96' onSubmit={handleFormSubmit}>
                 <h2 className='md:text-3xl text-2xl w-full mb-5'>Please {notRegistered ? 'SignUp' : 'Login to Continue'}</h2>
                 {error}
@@ -130,6 +136,9 @@ const Login = () => {
                 </button>
                 {
                     loading ?
+                        <><Loading></Loading></>
+                        :
+                    loading2 ?
                         <><Loading></Loading></>
                         :
                         <></>
