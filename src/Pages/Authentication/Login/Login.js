@@ -23,7 +23,7 @@ const Login = () => {
     const [
         createUserWithEmailAndPassword,
         userCreated,
-      ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth);
 
     const handleUserCheck = event => {
         setNotRegistered(event.target.checked);
@@ -33,7 +33,7 @@ const Login = () => {
         event.preventDefault();
 
         if (notRegistered) {
-            createUserWithEmailAndPassword(email,password);
+            createUserWithEmailAndPassword(email, password);
         }
         else {
             signInWithEmailAndPassword(email, password);
@@ -43,14 +43,18 @@ const Login = () => {
     useEffect(() => {
         if (user) {
             navigate(from, { replace: true });
-            
+
             alert('Successful');
         }
     })
-    
-    if (userCreated) {
-        navigate(from, { replace: true });
-    }
+
+    useEffect(() => {
+        if (userCreated) {
+            navigate(from, { replace: true });
+        }
+    })
+
+
 
     if (loginError) {
         console.error(loginError);
@@ -75,7 +79,7 @@ const Login = () => {
                         <>
                             <div className="mb-3">
                                 <input
-                                onBlur={event => setName(event.target.value)}
+                                    onBlur={event => setName(event.target.value)}
                                     type="text"
                                     className="form-control block w-full px-2.5 md:px-4 py-1.5 text-sm md:text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name='name'
                                     placeholder="User Name"
@@ -88,7 +92,7 @@ const Login = () => {
                 }
                 <div className="mb-3">
                     <input
-                    onBlur={event => setEmail(event.target.value)}
+                        onBlur={event => setEmail(event.target.value)}
                         type="email"
                         className="form-control block w-full px-2.5 md:px-4 py-1.5 text-sm md:text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name='email'
                         placeholder="Email address"
@@ -96,7 +100,7 @@ const Login = () => {
                 </div>
                 <div className="mb-3">
                     <input
-                    onBlur={event => setPassword(event.target.value)}
+                        onBlur={event => setPassword(event.target.value)}
                         type="password"
                         className="form-control block w-full px-2.5 md:px-4 py-1.5 text-sm md:text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name='password'
                         placeholder="Password"
