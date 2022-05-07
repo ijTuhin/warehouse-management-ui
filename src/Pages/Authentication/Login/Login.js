@@ -7,6 +7,9 @@ import Loading from '../Loading/Loading';
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [name, setName] = useState('');
+    const [notRegistered, setNotRegistered] = useState(false);
+    const [validated, setValidated] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();
     let error;
@@ -19,12 +22,29 @@ const Login = () => {
         loginError
     ] = useSignInWithEmailAndPassword(auth);
 
+    const handleUserCheck = event => {
+        setNotRegistered(event.target.checked);
+    }
+
     const handleFormSubmit = event => {
         event.preventDefault();
+
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+            event.stopPropagation();
+            return;
+        }
+        setValidated(true);
+
+        setName(event.target.name.value);
         setEmail(event.target.email.value);
         setPassword(event.target.password.value);
-        console.log(email, password);
-        signInWithEmailAndPassword(email, password);
+        console.log(email, password, name);
+
+        if (notRegistered) {
+            signInWithEmailAndPassword(email, password);
+        }
+        else { }
     }
 
     if (user) {
@@ -45,12 +65,27 @@ const Login = () => {
 
     return (
         <div class="container h-screen flex flex-col justify-start items-center px-6 py-12">
-            <form className='w-72 md:w-96' onSubmit={handleFormSubmit}>
-                <h2 className='md:text-3xl text-2xl w-full mb-5'>Please Login to Continue</h2>
+            <form className='w-72 md:w-96' onSubmit={handleFormSubmit} noValidate validated={validated}>
+                <h2 className='md:text-3xl text-2xl w-full mb-5'>Please {notRegistered ? 'SignUp' : 'Login to Continue'}</h2>
                 {error}
+                {
+                    notRegistered ?
+                        <>
+                            <div class="mb-3">
+                                <input
+                                    type="text"
+                                    class="form-control block w-full px-2.5 md:px-4 py-1.5 text-sm md:text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name='name'
+                                    placeholder="User Name"
+                                />
+                            </div>
+                        </>
+                        :
+                        <></>
+
+                }
                 <div class="mb-3">
                     <input
-                        type="text"
+                        type="email"
                         class="form-control block w-full px-2.5 md:px-4 py-1.5 text-sm md:text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name='email'
                         placeholder="Email address"
                     />
@@ -64,6 +99,15 @@ const Login = () => {
                 </div>
 
                 <div class="flex justify-between items-center mb-2.5">
+                    <div class="form-group form-check">
+                        <input onChange={handleUserCheck}
+                            type="checkbox"
+                            class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+                            id="exampleCheck3"
+                        />
+                        <label class="form-check-label inline-block text-gray-800" for="exampleCheck2"
+                        >Not registered?</label>
+                    </div>
                     <a
                         href="#!"
                         class="text-blue-600 hover:text-blue-700 focus:text-blue-700 active:text-blue-800 duration-200 transition ease-in-out"
@@ -74,7 +118,7 @@ const Login = () => {
                     type="submit"
                     class="px-7 py-2 md:py-3 bg-blue-600 text-white font-medium text-sm uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg w-full"
                 >
-                    Login
+                    {notRegistered ? 'SignUp' : 'Login'}
                 </button>
                 {
                     loading ?
