@@ -3,8 +3,14 @@ import './Header.css';
 import { header, blank } from '../../../index';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import auth from '../../../firebase.init';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { signOut } from 'firebase/auth';
 const Header = () => {
+    const [user] = useAuthState(auth);
+    const navigate = useNavigate();
+    
     return (
         <div className='sticky z-50 top-0 bg-white flex justify-between items-center shadow-md px-5'>
             <div className='my-2.5 font-mono'>
@@ -17,7 +23,15 @@ const Header = () => {
                 <Link className='p-3 bar hover:text-black' to="/blogs">Blog</Link>
                 <Link className='p-3 bar hover:text-black' to="/about">About</Link>
             </nav>
-            <img className='w-10 m-3 hidden md:block' src={blank} alt="" />
+            {
+                !user ?
+                    <><img className='w-10 m-3 hidden md:block' src={blank} alt="" /></>
+                    :
+                    <><button className='p-3 hover:text-black' onClick={() => {
+                        signOut(auth);
+                        navigate('/inventory');
+                    }}>LogOut</button></>
+            }
             <div className="flex justify-center md:hidden">
                 <div>
                     <div className="dropdown relative">
