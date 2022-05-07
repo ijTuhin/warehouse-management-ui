@@ -3,6 +3,7 @@ import { Google } from '../../../index';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { useLocation, useNavigate } from 'react-router-dom';
+import Loading from '../Loading/Loading';
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -14,6 +15,7 @@ const Login = () => {
     const [
         signInWithEmailAndPassword,
         user,
+        loading,
     ] = useSignInWithEmailAndPassword(auth);
 
     const handleFormSubmit = event => {
@@ -60,7 +62,12 @@ const Login = () => {
                 >
                     Login
                 </button>
-
+                {
+                    loading ?
+                    <><Loading></Loading></>
+                    :
+                    <></>
+                }
                 <div
                     class="flex items-center my-2.5 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5"
                 >
