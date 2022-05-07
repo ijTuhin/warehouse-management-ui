@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Google } from '../../../index';
-import { useCreateUserWithEmailAndPassword, useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../Loading/Loading';
@@ -51,7 +51,7 @@ const Login = () => {
     const handleLoginBtnClicked = () => {
         setNotReset(true)
     }
-    
+
 
     const resetPassword = async () => {
         await sendPasswordResetEmail(email);
@@ -73,6 +73,7 @@ const Login = () => {
         }
     })
 
+
     if (notReset) {
         error =
             <>
@@ -84,11 +85,18 @@ const Login = () => {
                 </div>
             </>
     }
-    else{
+    else {
         error = <></>
     }
 
 
+    // Google Sign-in
+    const [signInWithGoogle, googleUser, signing] = useSignInWithGoogle(auth);
+    useEffect(() => {
+        if (googleUser) {
+            navigate(from, { replace: true });
+        }
+    })
 
     return (
         <div className="container h-screen flex flex-col justify-start items-center px-6 py-12">
@@ -157,7 +165,10 @@ const Login = () => {
                         loading2 ?
                             <><Loading></Loading></>
                             :
-                            <></>
+                            signing ?
+                                <><Loading></Loading></>
+                                :
+                                <></>
                 }
                 <div
                     className="flex items-center my-2.5 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5"
@@ -166,6 +177,9 @@ const Login = () => {
                 </div>
 
                 <button type='submit'
+                    onClick={() => {
+                        signInWithGoogle();
+                    }}
                     className="px-7 py-2 text-slate-600 bg-white font-medium text-sm rounded border border-slate-500 hover:shadow-lg focus:shadow-lg w-full uppercase flex justify-center items-center mb-3"><img className='w-7 mx-3' src={Google} alt="" /> Sign in with Google
                 </button>
             </form>
