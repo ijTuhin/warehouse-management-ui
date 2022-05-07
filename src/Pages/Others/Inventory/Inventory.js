@@ -9,7 +9,7 @@ const Inventory = () => {
             <Header></Header>
             <div className='my-16'>
                 <div className='mx-16 md:flex md:justify-center md:items-center grid grid-cols-1 gap-y-5'>
-                    <img className='h-96' src={logo} alt="" />
+                    <img className='w-72' src={logo} alt="" />
                     <div className='text-start md:mx-5'>
                         <p className="text-gray-700 text-base mb-4">Name: lyhser;awiufjasnc;AOWirpajsfc;Jn.zsjdf </p>
                         <p className="text-gray-700 text-base mb-4">Description: lyhser;awiufjasnc;AOWirpajsfc;Jn.zsjdf</p>
