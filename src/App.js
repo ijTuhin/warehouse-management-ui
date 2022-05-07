@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Login from './Pages/Authentication/Login/Login';
+import RequireAuth from './Pages/Authentication/RequireAuth/RequireAuth';
 import Home from './Pages/HomePage/Home';
 import AddItems from './Pages/Others/AddItems/AddItems';
 import Blogs from './Pages/Others/Blogs/Blogs';
@@ -13,14 +14,18 @@ function App() {
   return (
     <div className='relative max-h-full'>
       <Routes>
-        <Route path='/' element={<Home></Home>}/>
-        <Route path='/login' element={<Login></Login>}/>
-        <Route path='/blogs' element={<Blogs></Blogs>}/>
-        <Route path='/inventory' element={<Inventory></Inventory>}/>
-        <Route path='/manage-inventories' element={<ManageInventories></ManageInventories>}/>
-        <Route path='/add-items' element={<AddItems></AddItems>}/>
-        <Route path='/my-items' element={<MyItems></MyItems>}/>
-        <Route path='*' element={<PageNotFound></PageNotFound>}/>
+        <Route path='/' element={<Home></Home>} />
+        <Route path='/login' element={<Login></Login>} />
+        <Route path='/blogs' element={<Blogs></Blogs>} />
+        <Route path='/inventory' element={
+          <RequireAuth>
+            <Inventory></Inventory>
+          </RequireAuth>
+        } />
+        <Route path='/manage-inventories' element={<ManageInventories></ManageInventories>} />
+        <Route path='/add-items' element={<AddItems></AddItems>} />
+        <Route path='/my-items' element={<MyItems></MyItems>} />
+        <Route path='*' element={<PageNotFound></PageNotFound>} />
       </Routes>
     </div>
   );

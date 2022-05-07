@@ -6,8 +6,11 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const loaction = useLocation();
+    const location = useLocation();
     const navigate = useNavigate();
+
+    const from = location.state?.from?.pathname || "/";
+
     const [
         signInWithEmailAndPassword,
         user,
@@ -24,11 +27,7 @@ const Login = () => {
     }
 
     if (user) {
-        return (
-            <div>
-                <p>Signed In User: {user.email}</p>
-            </div>
-        );
+        navigate(from, { replace: true });
     }
 
     return (
