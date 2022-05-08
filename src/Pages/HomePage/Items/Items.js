@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
-// import Loading from '../../Authentication/Loading/Loading';
 import Item from '../../Others/Item/Item';
 
 const Items = () => {
-    // const [isLoading, setIsLoading] = useState(false);
     const [items, setItems] = useState([]);
 
     useEffect(() => {
@@ -15,12 +12,6 @@ const Items = () => {
 
     return (
         <div>
-            {/* {
-                isLoading ?
-                    <><Loading></Loading></>
-                    :
-                    <></>
-            } */}
 
             <div className='grid grid-cols-1 md:grid-cols-3 my-10 gap-y-5 mx-auto md:mx-56'>
                 {

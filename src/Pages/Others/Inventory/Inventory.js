@@ -1,27 +1,38 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Footer from '../../Common/Footer/Footer';
 import Header from '../../Common/Header/Header';
-import { logo } from '../../../index';
 import ManageInventoryBtn from '../../Common/ManageInventoryBtn/ManageInventoryBtn';
+import { useParams } from 'react-router-dom';
 const Inventory = () => {
+    const { id } = useParams();
+    const [item, setItem] = useState({});
+
+    useEffect( () =>{
+        const url = `http://localhost:5000/item/${id}`;
+        console.log(url);
+        fetch(url)
+        .then(res=> res.json())
+        .then(data => setItem(data));
+
+    }, [])
     return (
         <div>
             <Header></Header>
             <div className='my-16'>
                 <div className='mx-16 md:flex md:justify-center md:items-center grid grid-cols-1 gap-y-5'>
-                    <img className='w-72' src={logo} alt="" />
+                    <img className='w-72' src={item.img} alt="" />
                     <div className='text-start md:mx-5'>
-                        <p className="text-gray-700 text-base mb-4">Name: lyhser;awiufjasnc;AOWirpajsfc;Jn.zsjdf </p>
-                        <p className="text-gray-700 text-base mb-4">Description: lyhser;awiufjasnc;AOWirpajsfc;Jn.zsjdf</p>
-                        <p className="text-gray-700 text-base mb-4">Price: lyhser;awiufjasnc;AOWirpajsfc;Jn.zsjdf</p>
-                        <p className="text-gray-700 text-base mb-4">Sold Item: lyhser;awiufjasnc;AOWirpajsfc;Jn.zsjdf</p>
-                        <p className="text-gray-700 text-base mb-4">Supplier: lyhser;awiufjasnc;AOWirpajsfc;Jn.zsjdf</p>
+                        <p className="text-gray-700 text-base mb-4"><span className='font-semibold text-lg uppercase'>{item.name} </span></p>
+                        <p className="text-gray-700 text-base mb-4"><span className='font-semibold'>Description: </span><span className='break-all'>{item.services}</span></p>
+                        <p className="text-gray-700 text-base mb-4"><span className='font-semibold'>Price: </span>${item.price}</p>
+                        <p className="text-gray-700 text-base mb-4"><span className='font-semibold'>Sold Item: </span>{item.sold}</p>
+                        <p className="text-gray-700 text-base mb-4"><span className='font-semibold'>Supplier: </span>{item.supplier}</p>
                     </div>
                 </div>
                 <br />
                 <hr className='md:block hidden' style={{ width: '50rem', margin: 'auto' }} />
                 <div className='flex flex-col md:flex-row justify-center md:justify-evenly items-center my-2'>
-                    <p className="text-gray-700 text-base mb-1 md:mb-0">Total Quantity: 129821</p>
+                    <p className="text-gray-700 text-base mb-1 md:mb-0">Total Quantity: {item.quantity}</p>
                     <div>
                         <button className='border border-slate-500 rounded-sm py-1 px-1.5 mr-0.5'>Item Delivered</button>
                         <button className='border border-slate-500 rounded-sm py-1 px-1.5 ml-0.5' data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Restock Items</button>

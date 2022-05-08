@@ -22,7 +22,7 @@ const ManageEachInventories = ({ item }) => {
                 </div>
             </td>
             <td class="text-sm text-gray-900 font-light px-6 py-4 ">
-                <div className=' break-all'>
+                <div className='break-all'>
                     <span>{services}</span>
                 </div>
             </td>
