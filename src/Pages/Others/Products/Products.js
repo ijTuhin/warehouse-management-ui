@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
-// import Loading from '../../Authentication/Loading/Loading';
-import Item from '../../Others/Item/Item';
+import Footer from '../../Common/Footer/Footer';
+import Header from '../../Common/Header/Header';
+import Item from '../Item/Item';
 
-const Items = () => {
-    // const [isLoading, setIsLoading] = useState(false);
+const Products = () => {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
@@ -15,24 +14,19 @@ const Items = () => {
 
     return (
         <div>
-            {/* {
-                isLoading ?
-                    <><Loading></Loading></>
-                    :
-                    <></>
-            } */}
-
+            <Header></Header>
             <div className='grid grid-cols-1 md:grid-cols-3 my-10 gap-y-5 mx-auto md:mx-56'>
                 {
-                    items.slice(0,6).map(item => <Item
+                    items.map(item => <Item
                         key={item._id}
                         item={item}
                     >
                     </Item>)
                 }
             </div>
+            <Footer></Footer>
         </div>
     );
 };
 
-export default Items;
+export default Products;

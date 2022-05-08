@@ -1,48 +1,72 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { logo, deleteBtn } from '../../../index';
 import Footer from '../../Common/Footer/Footer';
 import Header from '../../Common/Header/Header';
+import ManageEachInventories from './ManageEachInventories';
 
 const ManageInventories = () => {
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/item')
+            .then(res => res.json())
+            .then(data => setItems(data));
+    }, [])
+
     return (
         <div>
             <Header></Header>
-            <div className='flex flex-col mx-10'>
-                <div className='flex items-center border my-1'>
-                    <img className='w-24 h-24 border p-1 mr-5' src={logo} alt="" />
-                    <div className='py-3'>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae id enim corporis dolor fugit eos tempore eaque quidem eius. Iste, illum ea cum laudantium dolores cumque autem dolorum sit neque.</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae id enim corporis dolor fugit eos tempore eaque quidem eius. Iste, illum ea cum laudantium dolores cumque autem dolorum sit neque.</p>
+            <div class="flex flex-col">
+                <div class="overflow-x-auto md:mx-20 m-10">
+                    <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+                        <div class="overflow-hidden">
+                            <table class="min-w-full">
+                                <thead class="bg-slate-400/80 border-b">
+                                    <tr>
+                                        <th scope="col" class="text-base font-medium text-gray-900 px-6 py-4 text-left">
+                                            Product
+                                        </th>
+                                        <th scope="col" class="text-base font-medium text-gray-900 px-6 py-4 text-left">
+                                            Model Name
+                                        </th>
+                                        <th scope="col" class="text-base font-medium text-gray-900 px-6 py-4 text-left">
+                                            Features
+                                        </th>
+                                        <th scope="col" class="text-base font-medium text-gray-900 px-6 py-4 text-left">
+                                            Price
+                                        </th>
+                                        <th scope="col" class="text-base font-medium text-gray-900 px-6 py-4 text-left">
+                                            Quantity
+                                        </th>
+                                        <th scope="col" class="text-base font-medium text-gray-900 px-6 py-4 text-left">
+                                            Sold
+                                        </th>
+                                        <th scope="col" class="text-base font-medium text-gray-900 px-6 py-4 text-left">
+                                            Supplier
+                                        </th>
+                                        <th scope="col" class="text-base font-medium text-gray-900 px-6 py-4 text-left">
+
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody className='table-parent'>
+                                    {
+                                        items.map(item => <ManageEachInventories
+                                            key={item._id}
+                                            item={item}
+                                        >
+                                        </ManageEachInventories>)
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                    <button type='submit'>
-                        <img className='w-8 rounded-full mx-8' src={deleteBtn} alt="" />
-                    </button>
-                </div>
-                <div className='flex items-center border my-1'>
-                    <img className='w-24 h-24 border p-1 mr-5' src={logo} alt="" />
-                    <div className='py-3'>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae id enim corporis dolor fugit eos tempore eaque quidem eius. Iste, illum ea cum laudantium dolores cumque autem dolorum sit neque.</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae id enim corporis dolor fugit eos tempore eaque quidem eius. Iste, illum ea cum laudantium dolores cumque autem dolorum sit neque.</p>
+                    <div className='flex justify-end mx-10 mb-16'>
+                        <Link to='/add-items' className='border border-gray-600 bg-slate-400 rounded px-2.5 py-1'>Add New Items</Link>
                     </div>
-                    <button type='submit'>
-                        <img className='w-8 rounded-full mx-8' src={deleteBtn} alt="" />
-                    </button>
-                </div>
-                <div className='flex items-center border my-1'>
-                    <img className='w-24 h-24 border p-1 mr-5' src={logo} alt="" />
-                    <div className='py-3'>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae id enim corporis dolor fugit eos tempore eaque quidem eius. Iste, illum ea cum laudantium dolores cumque autem dolorum sit neque.</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae id enim corporis dolor fugit eos tempore eaque quidem eius. Iste, illum ea cum laudantium dolores cumque autem dolorum sit neque.</p>
-                    </div>
-                    <button type='submit'>
-                        <img className='w-8 rounded-full mx-8' src={deleteBtn} alt="" />
-                    </button>
                 </div>
             </div>
-            <div className='flex justify-end mx-10'>
-                <Link to='/add-items' className='border border-gray-600 rounded px-2.5 py-0.5'>Add Items</Link>
-            </div>
+
             <Footer></Footer>
         </div>
     );

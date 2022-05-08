@@ -10,6 +10,7 @@ import Inventory from './Pages/Others/Inventory/Inventory';
 import ManageInventories from './Pages/Others/ManageInventories/ManageInventories';
 import MyItems from './Pages/Others/MyItems/MyItems';
 import PageNotFound from './Pages/Others/PageNotFound/PageNotFound';
+import Products from './Pages/Others/Products/Products';
 
 function App() {
   return (
@@ -19,7 +20,12 @@ function App() {
         <Route path='/login' element={<Login></Login>} />
         <Route path='/blogs' element={<Blogs></Blogs>} />
         <Route path='/about' element={<About></About>} />
-        <Route path='/inventory' element={
+        <Route path='/products' element={
+          <RequireAuth>
+            <Products></Products>
+          </RequireAuth>
+        } />
+        <Route path='/inventory/:id' element={
           <RequireAuth>
             <Inventory></Inventory>
           </RequireAuth>
