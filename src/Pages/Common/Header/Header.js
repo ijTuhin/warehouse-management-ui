@@ -22,6 +22,16 @@ const Header = () => {
                 <Link className='p-3 bar hover:text-black' to="/products">Products</Link>
                 <Link className='p-3 bar hover:text-black' to="/blogs">Blog</Link>
                 <Link className='p-3 bar hover:text-black' to="/about">About</Link>
+                {
+                    !user ?
+                    <></>
+                    :
+                    <>
+                    <Link className='p-3 bar hover:text-black' to="/manage-inventories">Manage Item</Link>
+                    <Link className='p-3 bar hover:text-black' to="/add-items">Add Item</Link>
+                    <Link className='p-3 bar hover:text-black' to="/my-items">My Items</Link>
+                    </>
+                }
             </nav>
             {
                 !user ?
@@ -29,7 +39,7 @@ const Header = () => {
                     :
                     <><button className='p-3 hover:text-black' onClick={() => {
                         signOut(auth);
-                        navigate('/inventory');
+                        navigate('/');
                     }}>LogOut</button></>
             }
             <div className="flex justify-center md:hidden">
