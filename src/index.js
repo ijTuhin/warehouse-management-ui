@@ -27,4 +27,7 @@ export const user3 = require('./images/user3.jpg');
 export const blank = require('./images/blank.png');
 export const header = require('./images/header.png');
 export const Google = require('./icons/google.png');
+export const facebook = require('./icons/facebook.png');
+export const google1 = require('./icons/google1.png');
+export const youtube = require('./icons/youtube.png');
 export const deleteBtn = require('./icons/delete.png');
