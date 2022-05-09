@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 const Inventory = () => {
     const { id } = useParams();
     const [item, setItem] = useState({});
+    const [restock, setRestock] = useState('');
     const [reload, setReload] = useState(false);
 
     useEffect(() => {
@@ -35,6 +36,27 @@ const Inventory = () => {
         .then(data =>{
             console.log('success', data);
             alert('Item Delivered!!!');
+            setReload(!reload);
+        })
+    }
+
+
+    const handleRestockItem = event => {
+        const quantity = parseInt(item.quantity) + parseInt(restock);;
+        const restockItem = {quantity};
+        // send data to the server
+        const url = `http://localhost:5000/item/${id}`;
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(restockItem),
+        })
+        .then(res => res.json())
+        .then(data =>{
+            console.log('success', data);
+            alert('Item restocked!!!');
             setReload(!reload);
         })
     }
@@ -75,11 +97,11 @@ const Inventory = () => {
                                                 Restock {item.name}
                                             </h5>
                                             <input
-                                                type="text"
-                                                className="form-control w-80 px-2.5 md:px-4 py-1 text-sm md:text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                                type="number" onBlur={event => setRestock(event.target.value)}
+                                                className="form-control w-80 px-2.5 md:px-4 py-1 text-sm md:text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name='quantity'
                                                 placeholder="0 items"
                                             />
-                                            <button className='border-0 bg-slate-100 hover:bg-slate-200 rounded py-1 px-1.5 ml-1'>Restock</button>
+                                            <button onClick={handleRestockItem} className='border-0 bg-slate-100 hover:bg-slate-200 rounded py-1 px-1.5 ml-1' data-bs-dismiss="modal">Restock</button>
                                         </div>
                                     </div>
                                 </div>
