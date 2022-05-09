@@ -16,8 +16,8 @@ const Inventory = () => {
     }, [])
     
     const handleDeliveredItem = event => {
-        const sold = item.sold;
-        const quantity = item.quantity;
+        const sold = parseInt(item.sold) + 1;
+        const quantity = parseInt(item.quantity) - 1;
 
         const updatedItem = {quantity, sold};
 
@@ -33,7 +33,7 @@ const Inventory = () => {
         .then(res => res.json())
         .then(data =>{
             console.log('success', data);
-            alert('Item delivered!!!');
+            alert('Item Delivered!!!');
         })
     }
 
