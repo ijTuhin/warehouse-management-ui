@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 const Inventory = () => {
     const { id } = useParams();
     const [item, setItem] = useState({});
+    const [reload, setReload] = useState(false);
 
     useEffect(() => {
         const url = `http://localhost:5000/item/${id}`;
@@ -13,7 +14,7 @@ const Inventory = () => {
         fetch(url)
             .then(res => res.json())
             .then(data => setItem(data));
-    }, [])
+    }, [reload])
     
     const handleDeliveredItem = event => {
         const sold = parseInt(item.sold) + 1;
@@ -28,12 +29,13 @@ const Inventory = () => {
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(updatedItem)
+            body: JSON.stringify(updatedItem),
         })
         .then(res => res.json())
         .then(data =>{
             console.log('success', data);
             alert('Item Delivered!!!');
+            setReload(!reload);
         })
     }
 
