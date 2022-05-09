@@ -13,19 +13,19 @@ const Service = () => {
                 <h4 className='text-center font-extrabold text-gray-500 text-2xl'>24/7 <span className='mx-1 fw-bold text-warning'>||</span> 365 Days</h4>
             </div>
             <div className='flex justify-center flex-col md:flex-row items-center text-red-800 font-mono text-lg'>
-                <div className=' flex justify-center flex-col items-center'>
+                <div className='md:mx-4 flex justify-center flex-col items-center'>
                     <img src={service1} className="rounded-full md:w-16 w-10 block" alt="" />
                     <small>Towing Support</small>
                 </div>
-                <div className=' flex justify-center flex-col items-center'>
+                <div className='md:mx-4 flex justify-center flex-col items-center'>
                     <img src={service2} className="rounded-full md:w-16 w-10 block" alt="" />
                     <small>FUEL DELIVERY</small>
                 </div>
-                <div className=' flex justify-center flex-col items-center'>
+                <div className='md:mx-4 flex justify-center flex-col items-center'>
                     <img src={service3} className="rounded-full md:w-16 w-10 block" alt="" />
                     <small>Repair on spot</small>
                 </div>
-                <div className=' flex justify-center flex-col items-center'>
+                <div className='md:mx-4 flex justify-center flex-col items-center'>
                     <img src={service4} className="rounded-full md:w-16 w-10 block" alt="" />
                     <small>On-call Support</small>
                 </div>
