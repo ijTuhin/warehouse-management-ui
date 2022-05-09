@@ -15,7 +15,7 @@ const ManageInventoryBtn = () => {
                     <></>
             }
             <div className='flex justify-center my-10'>
-                <button type='submit' className='border border-gray-600 rounded px-2.5 py-0.5' onClick={() => {
+                <button type='submit' className='border bg-cyan-600 hover:bg-cyan-700 text-gray-100 rounded px-2.5 py-1.5' onClick={() => {
                     setIsLoading(true);
                     navigate('/manage-inventories');
                 }}>Manage Inventories</button>

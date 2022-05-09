@@ -1,0 +1,29 @@
+.cards {
+    width: 100%;
+    opacity: 0;
+    animation-name: fadeIn;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.card-head {
+    transition: height 1.5s;
+}
+.card-head:hover {
+    height: 370px;
+  }
+
+.cards {
+    animation-delay: 0.5s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

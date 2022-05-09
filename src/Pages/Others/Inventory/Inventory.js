@@ -80,8 +80,8 @@ const Inventory = () => {
                 <div className='flex flex-col md:flex-row justify-center md:justify-evenly items-center my-2'>
                     <p className="text-gray-700 text-base mb-1 md:mb-0">Total Quantity: {item.quantity}</p>
                     <div>
-                        <button onClick={handleDeliveredItem} className='border border-slate-500 rounded-sm py-1 px-1.5 mr-0.5'>Item Delivered</button>
-                        <button className='border border-slate-500 rounded-sm py-1 px-1.5 ml-0.5' data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Restock Items</button>
+                        <button onClick={handleDeliveredItem} className='border border-slate-300 bg-gray-300 hover:bg-red-500 hover:text-gray-200 rounded py-1 px-1.5 mr-0.5'>Deliver Item</button>
+                        <button className='border border-slate-300 bg-gray-300 hover:bg-gray-400 rounded py-1 px-1.5 ml-0.5' data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Restock Items</button>
 
                         <div className="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto" id="exampleModalCenter" tabIndex="-1" aria-labelledby="exampleModalCenterTitle" aria-modal="true" role="dialog">
                             <div className="modal-dialog modal-dialog-centered relative w-auto pointer-events-none">
@@ -101,7 +101,7 @@ const Inventory = () => {
                                                 className="form-control w-80 px-2.5 md:px-4 py-1 text-sm md:text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name='quantity'
                                                 placeholder="0 items"
                                             />
-                                            <button onClick={handleRestockItem} className='border-0 bg-slate-100 hover:bg-slate-200 rounded py-1 px-1.5 ml-1' data-bs-dismiss="modal">Restock</button>
+                                            <button onClick={handleRestockItem} className='border-0 bg-slate-100 hover:bg-red-600 rounded py-1 px-1.5 ml-1' data-bs-dismiss="modal">Restock</button>
                                         </div>
                                     </div>
                                 </div>
