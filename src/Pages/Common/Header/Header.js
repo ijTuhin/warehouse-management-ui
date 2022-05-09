@@ -21,7 +21,7 @@ const Header = () => {
                 <Link className='p-3 bar hover:text-black' to="/">Home</Link>
                 <Link className='p-3 bar hover:text-black' to="/products">Products</Link>
                 <Link className='p-3 bar hover:text-black' to="/blogs">Blog</Link>
-                <Link className='p-3 bar hover:text-black' to="/about">About</Link>
+                <Link className='p-3 bar hover:text-black' to="/reviews">Review</Link>
                 {
                     !user ?
                         <></>
@@ -88,7 +88,7 @@ const Header = () => {
                             </li>
                             <li>
                                 <Link className=" dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 "
-                                    to="/about">About</Link>
+                                    to="/reviews">Review</Link>
                             </li>
                             {
                                 !user ?

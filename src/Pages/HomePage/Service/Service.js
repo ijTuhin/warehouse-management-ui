@@ -5,7 +5,7 @@ import { service1, service2, service3, service4 } from '../../../index';
 
 const Service = () => {
     return (
-        <div>
+        <div className='mb-20'>
             <div className='my-5 pt-5'>
                 <h1 className='text-center pt-5 mt-5 font-extrabold text-gray-500 text-2xl'>A L W A Y S <span className='mx-3 fw-bold text-warning'>O P E N</span></h1>
                 <p className='font-extrabold text-gray-500 text-2xl text-center'>GET FREE ROADSIDE

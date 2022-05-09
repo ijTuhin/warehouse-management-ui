@@ -8,7 +8,7 @@ const ManageInventories = () => {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/item')
+        fetch('https://quiet-hamlet-97708.herokuapp.com/item')
             .then(res => res.json())
             .then(data => setItems(data));
     }, [])
@@ -17,7 +17,7 @@ const ManageInventories = () => {
         const proceed = window.confirm('Are you sure you want to delete?');
         if (proceed) {
             console.log('deleting user with id, ', id);
-            const url = `http://localhost:5000/item/${id}`;
+            const url = `https://quiet-hamlet-97708.herokuapp.com/item/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
