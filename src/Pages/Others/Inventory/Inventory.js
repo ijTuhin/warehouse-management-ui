@@ -7,14 +7,58 @@ const Inventory = () => {
     const { id } = useParams();
     const [item, setItem] = useState({});
 
-    useEffect( () =>{
+    useEffect(() => {
         const url = `http://localhost:5000/item/${id}`;
         console.log(url);
         fetch(url)
-        .then(res=> res.json())
-        .then(data => setItem(data));
-
+            .then(res => res.json())
+            .then(data => setItem(data));
     }, [])
+
+    /*
+    const handleDelete = id => {
+        const proceed = window.confirm('Are you sure you want to delete?');
+        if (proceed) {
+            console.log('deleting user with id, ', id);
+            const url = `http://localhost:5000/item/${id}`;
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        console.log('deleted');
+                        const remaining = items.filter(item => item._id !== id);
+                        setItems(remaining);
+                    }
+                })
+        }
+    } 
+     */
+    
+    const handleDeliveredItem = event => {
+        const sold = parseInt(item.sold) + 1;
+        const quantity = parseInt(item.quantity) - 1;
+
+        const updatedItem = {quantity, sold};
+
+        // send data to the server
+        const url = `http://localhost:5000/item/${id}`;
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updatedItem)
+        })
+        .then(res => res.json())
+        .then(data =>{
+            console.log('success', data);
+            alert('users added successfully!!!');
+            event.target.reset();
+        })
+    }
+
     return (
         <div>
             <Header></Header>
@@ -34,7 +78,7 @@ const Inventory = () => {
                 <div className='flex flex-col md:flex-row justify-center md:justify-evenly items-center my-2'>
                     <p className="text-gray-700 text-base mb-1 md:mb-0">Total Quantity: {item.quantity}</p>
                     <div>
-                        <button className='border border-slate-500 rounded-sm py-1 px-1.5 mr-0.5'>Item Delivered</button>
+                        <button onClick={handleDeliveredItem} className='border border-slate-500 rounded-sm py-1 px-1.5 mr-0.5'>Item Delivered</button>
                         <button className='border border-slate-500 rounded-sm py-1 px-1.5 ml-0.5' data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Restock Items</button>
 
                         <div className="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto" id="exampleModalCenter" tabIndex="-1" aria-labelledby="exampleModalCenterTitle" aria-modal="true" role="dialog">
@@ -48,7 +92,7 @@ const Inventory = () => {
                                     <div className="modal-body relative p-4">
                                         <div className="mx-5 mb-10">
                                             <h5 className="text-lg font-medium leading-normal text-gray-50 my-2" id="exampleModalScrollableLabel">
-                                               #--Item Name--#
+                                                Restock {item.name}
                                             </h5>
                                             <input
                                                 type="text"
