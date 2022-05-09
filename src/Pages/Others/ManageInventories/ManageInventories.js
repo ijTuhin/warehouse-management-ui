@@ -36,8 +36,8 @@ const ManageInventories = () => {
         <div>
             <Header></Header>
             <div class="flex flex-col">
-                <div class="overflow-x-auto md:mx-20 m-10">
-                    <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+                <div class="overflow-x-auto md:mx-20">
+                    <div class="py-2 md:inline-block hidden min-w-full sm:px-6 lg:px-8">
                         <div class="overflow-hidden">
                             <table class="min-w-full">
                                 <thead class="bg-slate-400/80 border-b">
@@ -118,6 +118,54 @@ const ManageInventories = () => {
                             </table>
                         </div>
                     </div>
+
+                    <div class="py-2 inline-block md:hidden min-w-full sm:px-6 lg:px-8">
+                        <div class="overflow-hidden">
+                            <table class="min-w-full">
+                                <thead class="bg-slate-400/80 border-b">
+                                    <tr>
+                                        <th scope="col" class="text-base font-medium text-gray-900 px-6 py-4 text-left">
+                                            Product
+                                        </th>
+                                        <th scope="col" class="text-base font-medium text-gray-900 py-4 text-left">
+                                            Model Name
+                                        </th>
+                                        <th scope="col" class="text-base font-medium text-gray-900 py-4 text-left">
+
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody className='table-parent'>
+                                    {
+                                        items.map(item => <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100"
+                                            key={item._id}
+                                            item={item}
+                                        >
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                                <img className='w-32 border p-1 mr-5' src={item.img} alt="" />
+                                            </td>
+                                            <td class="text-sm text-gray-900 font-light py-4 whitespace-nowrap">
+                                                <div className=' font-semibold uppercase'>
+                                                    <p>Name: {item.name}</p>
+                                                    {/* <p>{item.services}</p> */}
+                                                    <p>{item.supplier}</p>
+                                                    <p>${item.price}</p>
+                                                    <p>{item.quantity}</p>
+                                                    <p>{item.sold}</p>
+                                                </div>
+                                            </td>
+                                            <td class="text-sm text-gray-900 font-light py-4 whitespace-nowrap">
+                                                <button type='submit' onClick={() => handleDelete(item._id)} className='flex justify-end'>
+                                                    <img className='w-8 rounded-full mx-8' src={deleteBtn} alt="" />
+                                                </button>
+                                            </td>
+                                        </tr>)
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
                     <div className='flex justify-end mx-10 mb-16'>
                         <Link to='/add-items' className='border border-gray-600 bg-slate-400 rounded px-2.5 py-1'>Add New Items</Link>
                     </div>
