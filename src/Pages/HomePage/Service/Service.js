@@ -1,5 +1,3 @@
-import { faBicycle, faBowlFood, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { service1, service2, service3, service4 } from '../../../index';
 
