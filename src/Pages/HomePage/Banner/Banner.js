@@ -1,5 +1,6 @@
 import React from 'react';
 import './Banner.css';
+import {banner1, banner2, banner3} from '../../../index';
 const Banner = () => {
     return (
         <div>
@@ -31,37 +32,31 @@ const Banner = () => {
                 <div className="carousel-inner relative w-full overflow-hidden">
                     <div className="carousel-item active relative float-left w-full">
                         <img
-                            src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(19).webp"
+                            src={banner1}
                             className="block w-full"
                             alt="Motorbike Smoke"
                         />
                         <div className="carousel-caption hidden md:block absolute text-center">
-                            <h5 className="text-xl">First slide label</h5>
-                            <p>Some representative placeholder content for the first slide.</p>
                         </div>
                     </div>
 
                     <div className="carousel-item relative float-left w-full">
                         <img
-                            src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(35).webp"
+                            src={banner2}
                             className="block w-full"
                             alt="Mountaintop"
                         />
                         <div className="carousel-caption hidden md:block absolute text-center">
-                            <h5 className="text-xl">Second slide label</h5>
-                            <p>Some representative placeholder content for the second slide.</p>
                         </div>
                     </div>
 
                     <div className="carousel-item relative float-left w-full">
                         <img
-                            src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(40).webp"
+                            src={banner3}
                             className="block w-full"
                             alt="Woman Reading a Book"
                         />
                         <div className="carousel-caption hidden md:block absolute text-center">
-                            <h5 className="text-xl">Third slide label</h5>
-                            <p>Some representative placeholder content for the third slide.</p>
                         </div>
                     </div>
                 </div>

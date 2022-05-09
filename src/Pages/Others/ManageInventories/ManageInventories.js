@@ -128,7 +128,7 @@ const ManageInventories = () => {
                                             Product
                                         </th>
                                         <th scope="col" class="text-base font-medium text-gray-900 py-4 text-left">
-                                            Model Name
+                                            Product Details
                                         </th>
                                         <th scope="col" class="text-base font-medium text-gray-900 py-4 text-left">
 
@@ -147,7 +147,6 @@ const ManageInventories = () => {
                                             <td class="text-sm text-gray-900 font-light py-4 whitespace-nowrap">
                                                 <div className=' font-semibold uppercase'>
                                                     <p>Name: {item.name}</p>
-                                                    {/* <p>{item.services}</p> */}
                                                     <p>{item.supplier}</p>
                                                     <p>${item.price}</p>
                                                     <p>{item.quantity}</p>
