@@ -3,7 +3,6 @@ import Footer from '../../Common/Footer/Footer';
 import Header from '../../Common/Header/Header';
 import { deleteBtn } from '../../../index';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import './MyItems.css';
 import auth from '../../../firebase.init';
 import Loading from '../../Authentication/Loading/Loading';
 const MyItems = () => {
@@ -17,7 +16,7 @@ const MyItems = () => {
                 const myItems = items.filter(item => item.email === user.email);
                 setItems(myItems);
             });
-    }, []);
+    });
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure you want to delete?');
         if (proceed) {
