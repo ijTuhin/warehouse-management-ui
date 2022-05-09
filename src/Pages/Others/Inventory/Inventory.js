@@ -14,31 +14,10 @@ const Inventory = () => {
             .then(res => res.json())
             .then(data => setItem(data));
     }, [])
-
-    /*
-    const handleDelete = id => {
-        const proceed = window.confirm('Are you sure you want to delete?');
-        if (proceed) {
-            console.log('deleting user with id, ', id);
-            const url = `http://localhost:5000/item/${id}`;
-            fetch(url, {
-                method: 'DELETE'
-            })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.deletedCount > 0) {
-                        console.log('deleted');
-                        const remaining = items.filter(item => item._id !== id);
-                        setItems(remaining);
-                    }
-                })
-        }
-    } 
-     */
     
     const handleDeliveredItem = event => {
-        const sold = parseInt(item.sold) + 1;
-        const quantity = parseInt(item.quantity) - 1;
+        const sold = item.sold;
+        const quantity = item.quantity;
 
         const updatedItem = {quantity, sold};
 
@@ -54,8 +33,7 @@ const Inventory = () => {
         .then(res => res.json())
         .then(data =>{
             console.log('success', data);
-            alert('users added successfully!!!');
-            event.target.reset();
+            alert('Item delivered!!!');
         })
     }
 
