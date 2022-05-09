@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { img2, img3 } from '../../../index';
 import Footer from '../../Common/Footer/Footer';
 import Header from '../../Common/Header/Header';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import './MyItems.css';
 import PerUserItem from './PerUserItem';
 import auth from '../../../firebase.init';
+import Loading from '../../Authentication/Loading/Loading';
 const MyItems = () => {
-    const [user] = useAuthState(auth);
+    const [user,loading] = useAuthState(auth);
     const [items, setItems] = useState([]);
-    const [userItems, setUserItems] = useState([]);
     useEffect(() => {
         fetch('https://quiet-hamlet-97708.herokuapp.com/item')
             .then(res => res.json())
@@ -18,7 +17,10 @@ const MyItems = () => {
                 const myItems = items.filter(item => item.email === user.email);
                 setItems(myItems);
             });
-    }, [])
+    }, []);
+    if(loading){
+        return <Loading></Loading>;
+    }
 
     return (
         <div>

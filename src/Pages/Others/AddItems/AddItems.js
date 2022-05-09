@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import Footer from '../../Common/Footer/Footer';
