@@ -12,9 +12,9 @@ const MyItems = () => {
         fetch('https://warehouse-management-db.onrender.com/item')
             .then(res => res.json())
             .then(data => {
-                setItems(data)
-                const myItems = items.filter(item => item.email === user.email);
-                setItems(myItems);
+                console.log(user.email)
+                setItems(data.filter(item => item.email === user.email));
+                console.log(items)
             });
     });
     const handleDelete = id => {
