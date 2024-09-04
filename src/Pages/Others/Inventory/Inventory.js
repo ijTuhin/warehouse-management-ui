@@ -10,7 +10,7 @@ const Inventory = () => {
     const [reload, setReload] = useState(false);
 
     useEffect(() => {
-        const url = `https://quiet-hamlet-97708.herokuapp.com/item/${id}`;
+        const url = `https://warehouse-management-db.onrender.com/item/${id}`;
         console.log(url);
         fetch(url)
             .then(res => res.json())
@@ -24,7 +24,7 @@ const Inventory = () => {
         const updatedItem = {quantity, sold};
 
         // send data to the server
-        const url = `https://quiet-hamlet-97708.herokuapp.com/item/${id}`;
+        const url = `https://warehouse-management-db.onrender.com/item/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -45,7 +45,7 @@ const Inventory = () => {
         const quantity = parseInt(item.quantity) + parseInt(restock);;
         const restockItem = {quantity};
         // send data to the server
-        const url = `https://quiet-hamlet-97708.herokuapp.com/item/${id}`;
+        const url = `https://warehouse-management-db.onrender.com/item/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {
