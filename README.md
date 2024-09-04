@@ -5,7 +5,7 @@
 
 
 ## website link
-- https://warehouse-management-ui.web.app/
+- https://warehouse-management-ui.vercel.app/
 
 
 ### Frontend/Client site
@@ -23,10 +23,10 @@
 ### Authentication & hosting
 - Firebase auth (email-password)
 - Firebase auth (google)
-- Firebase hosting
+- Vercel
 
 ### Backend/Server-DB
 - MongoDB atlas
 - node.js
 - express.js
-- Heroku (deploy server site)
+- Render (deploy server site)
