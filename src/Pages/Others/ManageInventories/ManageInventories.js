@@ -8,7 +8,7 @@ const ManageInventories = () => {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-        fetch('https://quiet-hamlet-97708.herokuapp.com/item')
+        fetch('https://warehouse-management-db.onrender.com/item')
             .then(res => res.json())
             .then(data => setItems(data));
     }, [])
