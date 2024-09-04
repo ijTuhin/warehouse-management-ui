@@ -15,8 +15,8 @@ const MyItems = () => {
                 setItems(data.filter(item => item.email === user.email));
             });
     });
-    console.log(user.email)
-    console.log(items)
+    //console.log(user.email)
+    //console.log(items)
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure you want to delete?');
         if (proceed) {
