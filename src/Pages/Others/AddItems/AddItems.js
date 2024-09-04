@@ -9,7 +9,7 @@ const AddItems = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
         console.log(data);
-        const url = `https://quiet-hamlet-97708.herokuapp.com/item`;
+        const url = `https://warehouse-management-db.onrender.com/item`;
         fetch(url, {
             method: 'POST',
             headers: {
