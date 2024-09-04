@@ -9,7 +9,7 @@ const MyItems = () => {
     const [user, loading] = useAuthState(auth);
     const [items, setItems] = useState([]);
     useEffect(() => {
-        fetch('https://quiet-hamlet-97708.herokuapp.com/item')
+        fetch('https://warehouse-management-db.onrender.com/item')
             .then(res => res.json())
             .then(data => {
                 setItems(data)
@@ -21,7 +21,7 @@ const MyItems = () => {
         const proceed = window.confirm('Are you sure you want to delete?');
         if (proceed) {
             console.log('deleting user with id, ', id);
-            const url = `https://quiet-hamlet-97708.herokuapp.com/item/${id}`;
+            const url = `https://warehouse-management-db.onrender.com/item/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
