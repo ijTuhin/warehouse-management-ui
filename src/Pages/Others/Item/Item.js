@@ -20,7 +20,7 @@ const Item = ({ item }) => {
     return (
         <div className="flex justify-center cards">
             <div className="block rounded-lg shadow-lg bg-white text-center m-2 relative">
-                <div className='p-2 w-80 h-96 relative card-head'>
+                <div className='p-2 w-80 relative card-head'>
                     <img className="rounded-t-lg object-fill" src={img} alt="" />
                     <div className="p-2 absolute inset-0 z-10 bg-white text-center flex flex-col items-center justify-center opacity-0 hover:opacity-100 bg-opacity-90 duration-300">
                         <h5 className="text-gray-900 text-xl font-medium mb-2">{name}</h5>
